@@ -2,6 +2,7 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] arr) {
+        /*
         ArrayList<Integer> result = new ArrayList<>();
         for(int n : arr){
             result.add(n);
@@ -17,7 +18,13 @@ class Solution {
         }
         
         int[] answer = result.stream().mapToInt(a->a).toArray();
+        */
         
-        return answer;
+        int len = 1;
+        while(len < arr.length){
+            len *= 2;
+        }
+        
+        return Arrays.copyOf(arr, len);
     }
 }
