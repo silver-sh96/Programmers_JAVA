@@ -1,13 +1,6 @@
 class Solution {
     public int solution(int n, int k) {
-        int lamb = n * 12000;
-        while(n-10 >= 0){
-            k--;
-            n -= 10;
-        }
-        int juice = k * 2000;
-        
-        int answer = lamb + juice;
+        int answer = (n * 12000) + ((k - n/10) * 2000);
         
         return answer;
     }
