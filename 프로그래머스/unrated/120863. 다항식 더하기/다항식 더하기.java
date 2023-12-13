@@ -1,6 +1,6 @@
 class Solution {
     public String solution(String polynomial) {
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
         int xsum = 0, numsum = 0;
         for(String poly : polynomial.split(" ")){
             if(poly.contains("x")){
@@ -15,15 +15,15 @@ class Solution {
         }
         
         if(numsum > 0 && xsum > 0){
-            if(xsum == 1) answer = "x + "+String.valueOf(numsum);
-            else answer = String.valueOf(xsum)+"x + "+String.valueOf(numsum);
+            if(xsum == 1) sb.append("x + ").append(numsum);
+            else sb.append(xsum).append("x + ").append(numsum);
         } 
         if(numsum == 0 && xsum > 0){
-            if(xsum == 1) answer = "x";
-            else answer = String.valueOf(xsum)+"x";
+            if(xsum == 1) sb.append("x");
+            else sb.append(xsum).append("x");
         } 
-        if(numsum > 0 && xsum == 0) answer = String.valueOf(numsum);
+        if(numsum > 0 && xsum == 0) sb.append(numsum);
         
-        return answer;
+        return sb.toString();
     }
 }
