@@ -1,6 +1,6 @@
 class Solution {
     public int solution(int M, int N) {
-        int answer = (N - 1) + ((M - 1) * N);
+        int answer = M * N - 1;
         return answer;
     }
 }
