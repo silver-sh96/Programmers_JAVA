@@ -1,7 +1,8 @@
 class Solution {
     public int solution(String A, String B) {
-        int answer = 0;
+        int answer = B.repeat(2).indexOf(A);
         
+        /*
         for(int i=0; i<=A.length(); i++){
             String str = A.substring(A.length() - i, A.length()) + A.substring(0, A.length() - i);
             if(str.equals(B)){
@@ -11,7 +12,7 @@ class Solution {
                 answer = -1;
             }
         }
-        
+        */
         
         return answer;
     }
