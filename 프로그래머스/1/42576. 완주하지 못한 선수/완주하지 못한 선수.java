@@ -3,27 +3,23 @@ import java.util.*;
 class Solution {
     public String solution(String[] participant, String[] completion) {
         String answer = "";
-
-        HashMap<String, Integer> finishers = new HashMap<>();
-
-        for(String finisher : completion) {
-            if(!finishers.containsKey(finisher)) {
-                finishers.put(finisher, 1);    
-            } else {
-                finishers.replace(finisher, finishers.get(finisher) + 1);
-            }
+        Map<String, Integer> map = new HashMap<>();
+        
+        for(String str : participant){
+            map.put(str, map.getOrDefault(str, 0) + 1);
         }
-
-        for(String runner : participant) {
-            if(finishers.containsKey(runner) && finishers.get(runner) != 0) {
-                finishers.replace(runner, finishers.get(runner) - 1);
-                continue;
-            } else {
-                answer = runner;
+        
+        for(String str2 : completion){
+            map.replace(str2, map.get(str2) - 1);
+        }
+        
+        for(Map.Entry<String, Integer> entry : map.entrySet()){
+            if(entry.getValue() != 0){
+                answer = entry.getKey();
                 break;
             }
         }
-
+        
         return answer;
     }
 }
